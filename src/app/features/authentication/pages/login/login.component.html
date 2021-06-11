@@ -17,7 +17,7 @@
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="w-full text-sm">
                         <mat-label>Ingreso del número de documento</mat-label>
-                        <input maxlength={{selected}} matInput placeholder="N° de documento" formControlName="firstCtrl">
+                        <input (keypress)="onKeyPress($event)" maxlength={{selected}} matInput placeholder="Ingresa el número de tarjeta" formControlName="firstCtrl">
                     </mat-form-field>
                 </div>
               </form>
