@@ -1,0 +1,123 @@
+.btn-code {
+  height: 50px;
+  // position: relative;
+  // bottom: 50px;
+  // left: 230px;
+  //margin-right: 10px;
+
+  position: absolute;
+  bottom: 63.5%;
+  left: 57%;
+  background: #E8E8FF;
+}
+
+.btn-code2 {
+  height: 50px;
+  //margin-right: 10px;
+  // position: relative;
+  // bottom: 50px;
+  // left: 230px;
+  position: absolute;
+  bottom: 58.5%;
+  left: 57%;
+  background: #E8E8FF;
+}
+
+@media (min-width: 1024px) {
+  .btn-code {
+    height: 50px;
+    // position: relative;
+    // bottom: 50px;
+    // left: 230px;
+    // margin-right: 10px;
+
+    position: absolute;
+    bottom: 63.5%;
+    left: 82%;
+    background: #E8E8FF;
+  }
+
+.btn-home{
+  position: absolute;
+  left: 4%;
+}
+}
+
+@media screen and (max-width: 530px){
+  .ocultar{
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn-home{
+    position: absolute;
+    left: 51%;
+  }
+}
+
+.btn-code2{
+    height: 50px;
+    // margin-right: 10px;
+    // position: relative;
+    // bottom: 50px;
+    // left: 230px;
+    position: absolute;
+    bottom: 58.5%;
+    left: 82%;
+    background: #E8E8FF;
+}
+
+@media (min-width: 1024px) {
+    .btn-code{
+        height: 50px;
+        // position: relative;
+        // bottom: 50px;
+        // left: 230px;
+        // margin-right: 10px;
+
+        position: absolute;
+        bottom: 41%;
+        left: 82%;
+        background: #E8E8FF;
+    }
+    .btn-code2{
+        height: 50px;
+        // margin-right: 10px;
+        // position: relative;
+        // bottom: 50px;
+        // left: 230px;
+        position: absolute;
+        bottom: 32.5%;
+        left: 82%;
+        background: #E8E8FF;
+    }
+
+  .loader-container {
+    position: absolute;
+    z-index: 99;
+    left: 70%;
+    bottom: 40%;
+  }
+}
+
+.loader-container {
+  position: absolute;
+  z-index: 99;
+  left: 70%;
+  bottom: 60%;
+  background: white;
+  opacity: 80%;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+//@media screen and (max-width: 530px){
+//  .ocultar{
+//    display: none;
+//  }
+//}
+
