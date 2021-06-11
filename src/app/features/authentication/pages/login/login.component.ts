@@ -3,6 +3,7 @@ import {Router} from '@angular/router'
 import {AuthenticationService} from '../../core/http/Authentication.service'
 import {IAuthenticationRequest} from '../../models/request/authentication-request.interface'
 import {IAuthenticationResponse} from '../../models/response/authentication-response.interface'
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,24 +12,21 @@ import {IAuthenticationResponse} from '../../models/response/authentication-resp
 })
 export class LoginComponent implements OnInit {
 
+  firstFormGroup!: FormGroup;
   value = 'Clear me';
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private _formBuilder: FormBuilder
   ) {
   }
 
-  _keyUp(event: any) {
-    const pattern = /[0-9\+\-\ ]/;
-    let inputChar = String.fromCharCode(event.charCode);
+  selected = "8"
 
-    if (!pattern.test(inputChar)) {
-      // invalid character, prevent input
-      event.preventDefault();
-    }
-}
-
-  ngOnInit()  {
+  ngOnInit(): void {
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
   }
 
   public LoginHB(){

@@ -9,7 +9,7 @@
             aria-label="Example icon-button with menu icon">
             <mat-icon>arrow_back_ios</mat-icon>
           </button>
-          <span class="ocultar">Inicio</span>
+          <span class="ocultar font-montserrat font-bold">Inicio</span>
         </div>
         <img class="mx-auto" src="assets/images/logo-full.svg" alt="logo">
         <mat-horizontal-stepper labelPosition="bottom" #stepper *ngIf="hideSteppers">
@@ -20,20 +20,20 @@
                 <form [formGroup]="firstFormGroup">
                   <ng-template matStepLabel>Identificación</ng-template>
                   <mat-form-field appearance="outline" class="w-full text-sm">
-                    <input type="number" matInput placeholder="Ingresa el número de tarjeta" formControlName="firstCtrl"
-                      required>
+                    <mat-label>Ingresa el número de tarjeta</mat-label>
+                    <input (keypress)="onKeyPress($event)" maxlength="16" matInput placeholder="Ingresa el número de tarjeta" formControlName="firstCtrl">
                   </mat-form-field>
                   <div class="flex flex-row">
                     <mat-form-field appearance="outline" class="w-20 mr-5 text-sm">
-                      <mat-label>DNI</mat-label>
-                      <mat-select>
-                        <mat-option value="one">First option</mat-option>
-                        <mat-option value="two">Second option</mat-option>
+                      <mat-label>Select</mat-label>
+                      <mat-select [(value)]="selected">
+                        <mat-option value="8">DNI</mat-option>
+                        <mat-option value="9">CE</mat-option>
                       </mat-select>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="w-64 text-sm">
                       <mat-label>Ingreso del número de documentos</mat-label>
-                      <input type="number" matInput placeholder="Placeholder" formControlName="firstCtrl" required>
+                      <input (keypress)="onKeyPress($event)" maxlength={{selected}} matInput placeholder="Placeholder" formControlName="firstCtrl">
                     </mat-form-field>
                   </div>
                   <p class="text-left text-sm flex items-center">

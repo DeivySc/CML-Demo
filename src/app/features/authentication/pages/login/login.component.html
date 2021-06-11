@@ -5,20 +5,22 @@
         <div class="2xl:flex 2xl:flex-col m-auto w-full lg:w-6/12 lg:mx-auto">
             <div class="flex flex-col py-2 justify-center">
                 <img class="mx-auto logo" src="assets/images/logo-full.svg" alt="logo">
-                <h4 class="sm:text-3xl text-2x1 text-center my-2 font-montserrat font-bold">Iniciar Sesión</h4>
+                <h4 class="text-3xl sm:text-2x1 text-center my-2 font-montserrat font-bold">Iniciar Sesión</h4>
+                <form [formGroup]="firstFormGroup">
                 <div class="flex flex-row my-2">
                     <mat-form-field appearance="outline" class="w-1/4 mr-5 text-sm">
                         <mat-label>Selecciona</mat-label>
-                        <mat-select>
-                            <mat-option value="one">DNI</mat-option>
-                            <mat-option value="two">CE</mat-option>
+                        <mat-select [(value)]="selected">
+                            <mat-option value="8">DNI</mat-option>
+                            <mat-option value="9">CE</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="w-full text-sm">
                         <mat-label>Ingreso del número de documento</mat-label>
-                        <input inputmode="numeric" maxlength="9" (keyup)="_keyUp($event)" matInput placeholder="N° de documento">
+                        <input maxlength={{selected}} matInput placeholder="N° de documento" formControlName="firstCtrl">
                     </mat-form-field>
                 </div>
+              </form>
                 <p class="text-left text-sm flex items-center">
                     <mat-icon class="text-yellow-500 mr-3">info</mat-icon>Clave de internet de 6 digitos
                 </p>

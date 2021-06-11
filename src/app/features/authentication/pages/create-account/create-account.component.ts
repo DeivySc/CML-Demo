@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-create-account',
@@ -35,6 +35,16 @@ export class CreateAccountComponent implements OnInit {
       this.showSpinner = false;
     }, 1000);
   }
+
+  onKeyPress(event: any) {
+    const regexpNumber = /[0-9\+\-\ ]/;
+    let inputCharacter = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !regexpNumber.test(inputCharacter)) {
+      event.preventDefault();
+    }
+  }
+
+  selected = "8";
 
   completeStep() {
     this.completed = true;
