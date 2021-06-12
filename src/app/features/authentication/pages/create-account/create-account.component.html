@@ -2,8 +2,8 @@
   <div class="border-top"></div>
   <div class="container px-3 lg:px-4 lg:ml-auto dimension">
     <img src="assets/images/login.svg" alt="login" class="hidden lg:block absolute-bg">
-    <div class="2xl:flex 2xl:flex-col w-full lg:w-7/12 lg:mx-auto">
-      <div class="flex flex-col py-6 ">
+    <div class="2xl:flex 2xl:flex-col w-full lg:w-9/12 lg:mx-auto">
+      <div class="flex flex-col py-2">
         <div class="btn-home">
           <button mat-icon-button class="example-icon" routerLink="/login"
             aria-label="Example icon-button with menu icon">
@@ -11,12 +11,12 @@
           </button>
           <span class="ocultar font-montserrat font-bold">Inicio</span>
         </div>
-        <img class="mx-auto" src="assets/images/logo-full.svg" alt="logo">
+        <img class="mx-auto logo" src="assets/images/logo-full.svg" alt="logo">
         <mat-horizontal-stepper labelPosition="bottom" #stepper *ngIf="hideSteppers">
-          <mat-step [editable]="false" [completed]="completed" [stepControl]="firstFormGroup">
-            <div class="flex flex-col py-6">
-              <h4 class="text-3xl text-center my-10 pb-3">Ingresa tus datos</h4>
-              <div class="max-w-md mx-auto">
+          <mat-step [completed]="completed" [stepControl]="firstFormGroup" style="min-height: 870px;">
+            <div class="flex flex-col py-1">
+              <h4 class="text-3xl text-center pb-1">Ingresa tus datos</h4>
+              <div class="max-w-md mx-auto w-full">
                 <form [formGroup]="firstFormGroup">
                   <ng-template matStepLabel>Identificación</ng-template>
                   <mat-form-field appearance="outline" class="w-full text-sm">
@@ -24,36 +24,36 @@
                     <input (keypress)="onKeyPress($event)" maxlength="16" matInput placeholder="Ingresa el número de tarjeta" formControlName="firstCtrl">
                   </mat-form-field>
                   <div class="flex flex-row">
-                    <mat-form-field appearance="outline" class="w-20 mr-5 text-sm">
+                    <mat-form-field appearance="outline" class="w-1/4 mr-5 text-sm">
                       <mat-label>Select</mat-label>
                       <mat-select [(value)]="selected">
                         <mat-option value="8">DNI</mat-option>
                         <mat-option value="9">CE</mat-option>
                       </mat-select>
                     </mat-form-field>
-                    <mat-form-field appearance="outline" class="w-64 text-sm">
+                    <mat-form-field appearance="outline" class="w-full text-sm">
                       <mat-label>Ingreso del número de documentos</mat-label>
                       <input (keypress)="onKeyPress($event)" maxlength={{selected}} matInput placeholder="Placeholder" formControlName="firstCtrl">
                     </mat-form-field>
                   </div>
                   <p class="text-left text-sm flex items-center">
-                    <mat-icon class="text-yellow-500 mr-3 my-2" matTooltip="Info about the action">info</mat-icon>Clave
+                    <mat-icon class="text-yellow-500 mr-3" matTooltip="Info about the action">info</mat-icon>Clave
                     de internet de 4
                     digitos
                   </p>
                   <app-password-field></app-password-field>
-                  <div class="mt-10">
-                    <button class="btn h-12 w-full" mat-raised-button color="primary" matStepperNext
+                  <div class="mt-5">
+                    <button class="shadow-lg py-2 uppercase block w-full pt-4 text-base text-white rounded-2xl bg-primary hover:bg-blue-900 focus:outline-none font-montserrat" color="primary" matStepperNext
                       (click)="loadData();completeStep()">SIGUIENTE</button>
                   </div>
                 </form>
               </div>
             </div>
           </mat-step>
-          <mat-step [editable]="false" [completed]="completed" [stepControl]="secondFormGroup"
+          <mat-step [completed]="completed" class="w-full" [stepControl]="secondFormGroup"
             style="min-height: 870px;">
             <div class="flex flex-col py-6">
-              <h4 class="text-3xl text-center my-10 pb-3">Ingresa tu código</h4>
+              <h4 class="text-3xl text-center pb-1">Ingresa tu código</h4>
               <div class="max-w-md mx-auto">
                 <form [formGroup]="secondFormGroup">
                   <ng-template matStepLabel>Código</ng-template>
@@ -69,24 +69,24 @@
                     <mat-card style="border-radius: 20px; height: 50px; padding: 12px !important;">
                       <mat-radio-button class="text-sm" value="1" color="primary">+51 ********058
                       </mat-radio-button>
+                      <button class="btn w-36 btn-code" mat-raised-button>ENVIAR SMS</button>
                     </mat-card>
-                    <button class="btn w-36 btn-code" mat-raised-button>ENVIAR SMS</button>
+                    <!-- <button class="btn w-36 btn-code" mat-raised-button>ENVIAR SMS</button> -->
                   </div>
                   <div class="mb-8 h-16">
                     <mat-card style="border-radius: 20px; height: 50px; padding: 12px !important;">
                       <mat-radio-button class="text-sm" value="2" color="primary">jos**********@gmail.com
                       </mat-radio-button>
+                      <button class="btn h-15 w-36 btn-code" mat-raised-button>ENVIAR MAIL</button>
                     </mat-card>
-                    <button class="btn h-15 w-36 btn-code2" mat-raised-button>ENVIAR MAIL</button>
+                    <!-- <button class="btn h-15 w-36 btn-code2" mat-raised-button>ENVIAR MAIL</button> -->
                   </div>
-                  <mat-form-field appearance="outline" class="w-64 text-sm mx-auto">
+                  <mat-form-field appearance="outline" class="w-11/12 text-sm mx-auto">
                     <mat-label>Ingreso del número de documento</mat-label>
                     <input matInput placeholder="Placeholder">
                   </mat-form-field>
-                  <br>
-                  <a class="text-sm text-primary text-center">Solicitar nuevo código</a>
-
-                  <div class="flex flex-row mt-5">
+                  <a class="text-sm text-primary text-center mt-1">Solicitar nuevo código</a>
+                  <div class="flex flex-row ">
                     <div class="mr-5 w-full">
                       <button class="btn h-12 w-full" mat-raised-button color="primary"
                         matStepperPrevious>VOLVER</button>
@@ -97,31 +97,31 @@
                     </div>
                   </div>
                 </form>
-
               </div>
             </div>
           </mat-step>
-          <mat-step [stepControl]="firstFormGroup">
+          <mat-step [stepControl]="firstFormGroup" style="min-height: 870px;">
             <div style="min-height: 550px; display: flex; flex-direction: column;">
               <ng-template matStepLabel>Clave <br> de internet</ng-template>
               <div *ngIf="showSpinner" class="loader-container">
                 <mat-spinner></mat-spinner>
               </div>
-              <h4 class="text-3xl text-center my-10 pb-3">Crear Clave de Internet</h4>
+              <h4 class="text-3xl text-center my-1 pb-1">Crear Clave de Internet</h4>
               <p class="text-center text-sm flex items-center mx-auto">
-                <mat-icon class="text-yellow-500 mr-2 my-2" matTooltip="Info about the action">info</mat-icon>Nueva
+                <mat-icon class="text-yellow-500 mr-2 my-1" matTooltip="Info about the action">info</mat-icon>Nueva
                 clave de internet de 6
                 digitos
               </p>
               <mat-form-field appearance="outline" class="w-full text-sm">
                 <mat-label>Ingresa el número de tarjeta</mat-label>
-                <input matInput placeholder="Placeholder" type="number">
+                <input (keypress)="onKeyPress($event)" maxlength="16" matInput placeholder="N° de tarjeta">
               </mat-form-field>
-              <p class="text-sm text-center mb-4">Confirmar nueva clave de internet de 6 digitos</p>
+
+              <p class="text-sm text-center ">Confirmar nueva clave de internet de 6 digitos</p>
               <app-password-field></app-password-field>
-              <mat-checkbox class="mt-5 text-gray-100 text-sm" color="primary">Acepto términos y
+              <mat-checkbox class=" text-gray-100 text-sm" color="primary">Acepto términos y
                 condiciones</mat-checkbox>
-              <div class="flex flex-row mt-24">
+              <div class="flex flex-row mt-3 mt-5">
                 <div class="mr-5 w-full">
                   <button class="btn h-12 w-full" mat-raised-button color="primary" matStepperPrevious>VOLVER</button>
                 </div>
